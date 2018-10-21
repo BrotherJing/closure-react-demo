@@ -1,0 +1,12 @@
+{
+    "name": "closure-react-demo",
+    "version": "0.0.1",
+    "dependencies": {
+        "google-closure-library": "^20180910.0.0",
+        "react": "^16.0.0",
+        "react-dom": "^16.0.0"
+    },
+    "devDependencies": {
+        "google-closure-compiler": "^20181008.0.0"
+    }
+}
