@@ -3,11 +3,16 @@ goog.module('app');
 const notepad = goog.require('tutorial.notepad');
 
 const Timer = require('./react/timer');
+const TodoApp = require('./react/todoapp');
 const React = require('react');
 const ReactDOM = require('react-dom');
 
+var App = <div>
+    <Timer/>
+    <TodoApp/>
+</div>
 // react component
-ReactDOM.render(React.createElement(Timer, null), document.getElementById('app'));
+ReactDOM.render(App, document.getElementById('todoapp'));
 
 // closure library component
 var noteData = [

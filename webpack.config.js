@@ -19,13 +19,24 @@ module.exports = {
         inline: true,
         // hot: true
     },
-
+    module: {
+        rules: [
+            {
+                test: /(\.jsx|\.js)$/,
+                use: {
+                    loader: "babel-loader"
+                },
+                exclude: /node_modules/
+            }
+        ]
+    },
     plugins: [
         new webpack.BannerPlugin('license MIT'),
         // new webpack.HotModuleReplacementPlugin(),
         new ClosurePlugin({
+            // mode: 'NONE',
             mode: 'AGGRESSIVE_BUNDLE',
-            platform: 'java',
+            platform: 'native',
             closureLibraryBase: require.resolve('google-closure-library/closure/goog/base'),
             deps: [
                 require.resolve('google-closure-library/closure/goog/deps'),
