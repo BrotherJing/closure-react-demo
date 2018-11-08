@@ -6,7 +6,7 @@
         "start:devserver": "webpack-dev-server",
         "build": "run-s build:deps build:webpack",
         "build:webpack": "node_modules/.bin/webpack",
-        "build:deps": "./node_modules/google-closure-deps/bin/closuremakedeps.js --no-validate --root src --closure-path './node_modules/google-closure-library/closure/goog' > dist/deps.js",
+        "build:deps": "./build-deps.sh",
         "build:gcc": "java -jar node_modules/google-closure-compiler/compiler.jar --flagfile closure.conf",
         "build:debug": "java -jar node_modules/google-closure-compiler/compiler.jar --flagfile closure.conf --debug --formatting PRETTY_PRINT"
     },
