@@ -3,7 +3,7 @@ goog.module('app');
 const notepad = goog.require('tutorial.notepad');
 
 const Timer = require('./react/timer');
-const TodoApp = require('./react/todoapp');
+const TodoApp = require('./react/todoapp').default;
 const React = require('react');
 const ReactDOM = require('react-dom');
 

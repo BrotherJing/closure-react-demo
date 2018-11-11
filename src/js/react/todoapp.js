@@ -1,4 +1,6 @@
-const React = require('react');
+import React from 'react';
+
+const string = goog.require('goog.string');
 
 class TodoApp extends React.Component {
     constructor(props) {
@@ -40,7 +42,7 @@ class TodoApp extends React.Component {
         return;
       }
       const newItem = {
-        text: this.state.text,
+        text: string.capitalize(this.state.text),
         id: Date.now()
       };
       this.setState(state => ({
@@ -62,4 +64,4 @@ class TodoApp extends React.Component {
     }
   }
   
-module.exports = TodoApp;
+export default TodoApp;
