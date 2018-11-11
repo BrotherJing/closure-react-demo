@@ -17,9 +17,10 @@
         "react-dom": "~16.4.0"
     },
     "devDependencies": {
-        "babel-core": "^6.26.3",
-        "babel-loader": "^7.x",
-        "babel-preset-react": "^6.24.1",
+        "@babel/cli": "^7.1.5",
+        "@babel/core": "^7.1.5",
+        "@babel/preset-react": "^7.0.0",
+        "babel-loader": "^8.0.4",
         "closure-webpack-plugin": "^1.1.1",
         "google-closure-compiler": "^20181008.0.0",
         "npm-run-all": "^4.1.3",
