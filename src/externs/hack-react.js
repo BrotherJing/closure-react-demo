@@ -20,3 +20,11 @@ var findNodeHandle;
 var findFiberByHostInstance;
 var findHostInstanceByFiber;
 var rendererPackageName;
+
+/**
+ * externs for react component prop type
+ */
+var className;
+var htmlFor;
+var raised;
+var dense;

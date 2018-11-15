@@ -1,6 +1,9 @@
 import React from 'react';
+import Button from './component/button';
 
 const string = goog.require('goog.string');
+
+import './todoapp.scss'
 
 class TodoApp extends React.Component {
     constructor(props) {
@@ -24,9 +27,9 @@ class TodoApp extends React.Component {
               onChange={this.handleChange}
               value={this.state.text}
             />
-            <button>
+            <Button className={'button-alternate'} raised dense>
               Add #{this.state.items.length + 1}
-            </button>
+            </Button>
           </form>
         </div>
       );
