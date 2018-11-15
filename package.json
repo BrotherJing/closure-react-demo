@@ -18,7 +18,8 @@
         "google-closure-deps": "^20180910.1.0",
         "google-closure-library": "^20180910.0.0",
         "react": "~16.4.0",
-        "react-dom": "~16.4.0"
+        "react-dom": "~16.4.0",
+        "redux": "^4.0.1"
     },
     "devDependencies": {
         "@babel/cli": "^7.1.5",

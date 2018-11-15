@@ -2,17 +2,32 @@ goog.module('app');
 
 const notepad = goog.require('tutorial.notepad');
 
-const Timer = require('./react/timer');
 const TodoApp = require('./react/todoapp').default;
 const React = require('react');
 const ReactDOM = require('react-dom');
+const Redux = require('redux/dist/redux');
+const Counter = require('./redux/counter').default;
+const counter = require('./redux/reducer').default;
+
+const store = Redux.createStore(counter);
 
 var App = <div>
-    <Timer/>
     <TodoApp/>
 </div>
 // react component
 ReactDOM.render(App, document.getElementById('todoapp'));
+
+// redux
+const render = () => ReactDOM.render(
+    <Counter
+        value={store.getState()}
+        onIncrement={() => store.dispatch({type: 'INCREMENT'})}
+        onDecrement={() => store.dispatch({type: 'DECREMENT'})}
+    />,
+    document.getElementById('counter')
+)
+render();
+store.subscribe(render);
 
 // closure library component
 var noteData = [
