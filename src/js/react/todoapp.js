@@ -1,5 +1,10 @@
 import React from 'react';
 import Button from './component/button';
+import TopAppBar from './component/top-app-bar';
+import TopAppBarFixedAdjust from './component/top-app-bar/FixedAdjust';
+import List from './component/list';
+import ListItem from './component/list/ListItem';
+import ListItemText from './component/list/ListItemText';
 
 const string = goog.require('goog.string');
 
@@ -16,21 +21,26 @@ class TodoApp extends React.Component {
     render() {
       return (
         <div>
-          <h3>TODO</h3>
-          <TodoList items={this.state.items} />
-          <form onSubmit={this.handleSubmit}>
-            <label htmlFor="new-todo">
-              What needs to be done?
-            </label>
-            <input
-              id="new-todo"
-              onChange={this.handleChange}
-              value={this.state.text}
-            />
-            <Button className={'button-alternate'} raised dense>
-              Add #{this.state.items.length + 1}
-            </Button>
-          </form>
+          <TopAppBar
+            title='TODO'/>
+          <TopAppBarFixedAdjust>
+            <div className='content'>
+              <TodoList items={this.state.items} />
+              <form onSubmit={this.handleSubmit}>
+                <label htmlFor="new-todo">
+                  What needs to be done?
+                </label>
+                <input
+                  id="new-todo"
+                  onChange={this.handleChange}
+                  value={this.state.text}
+                />
+                <Button raised dense>
+                  Add #{this.state.items.length + 1}
+                </Button>
+              </form>
+            </div>
+          </TopAppBarFixedAdjust>
         </div>
       );
     }
@@ -58,11 +68,13 @@ class TodoApp extends React.Component {
   class TodoList extends React.Component {
     render() {
       return (
-        <ul>
+        <List>
           {this.props.items.map(item => (
-            <li key={item.id}>{item.text}</li>
+            <ListItem key={item.id}>
+              <ListItemText primaryText={item.text}/>
+            </ListItem>
           ))}
-        </ul>
+        </List>
       );
     }
   }

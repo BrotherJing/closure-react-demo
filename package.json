@@ -4,16 +4,20 @@
     "scripts": {
         "start": "run-s build:deps start:devserver",
         "start:devserver": "webpack-dev-server",
-        "build": "run-s build:deps build:webpack",
-        "build:webpack": "node_modules/.bin/webpack",
         "build:deps": "./build-deps.sh",
+        "build:webpack-dev": "NODE_ENV=development node_modules/.bin/webpack --watch --progress",
+        "build:webpack-prod": "NODE_ENV=development node_modules/.bin/webpack --config webpack.prod.config.js --watch --progress",
+        "build": "run-s build:deps build:webpack-prod",
+        "build-dev": "run-s build:deps build:webpack-dev",
         "build:gcc": "java -jar node_modules/google-closure-compiler/compiler.jar --flagfile closure.conf",
         "build:debug": "java -jar node_modules/google-closure-compiler/compiler.jar --flagfile closure.conf --debug --formatting PRETTY_PRINT"
     },
     "dependencies": {
         "@material/button": "^0.41.0",
+        "@material/list": "^0.41.0",
         "@material/react-button": "^0.6.2",
         "@material/ripple": "^0.41.0",
+        "@material/top-app-bar": "^0.41.0",
         "classnames": "^2.2.6",
         "google-closure-deps": "^20180910.1.0",
         "google-closure-library": "^20180910.0.0",
@@ -24,6 +28,8 @@
     "devDependencies": {
         "@babel/cli": "^7.1.5",
         "@babel/core": "^7.1.5",
+        "@babel/plugin-proposal-class-properties": "^7.1.0",
+        "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
         "@babel/plugin-transform-destructuring": "^7.1.3",
         "@babel/preset-react": "^7.0.0",
         "babel-loader": "^8.0.4",

@@ -1,5 +1,7 @@
 @import "./component/button/index.scss";
 @import "@material/button/mixins";
+@import "./component/top-app-bar/index.scss";
+@import "./component/list/index.scss";
 
 .button-alternate {
     @include mdc-button-container-fill-color(#4285f4);

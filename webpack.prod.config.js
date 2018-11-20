@@ -3,7 +3,7 @@ const path = require('path');
 const ClosurePlugin = require('closure-webpack-plugin');
 
 module.exports = {
-    devtool: 'eval-source-map',
+    // devtool: 'source-map',
     watchOptions: {
         ignored: /node_modules/
     },
@@ -12,13 +12,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js'
-    },
-    devServer: {
-        contentBase: path.resolve(__dirname, 'dist'),
-        historyApiFallback: true,
-        inline: true,
-        // hot: true
+        filename: 'bundle.min.js'
     },
     module: {
         rules: [
@@ -54,7 +48,7 @@ module.exports = {
         new webpack.BannerPlugin('license MIT'),
         new webpack.EnvironmentPlugin(['NODE_ENV']),
         new ClosurePlugin({
-            mode: 'NONE',
+            mode: 'AGGRESSIVE_BUNDLE',
             platform: 'native',
             closureLibraryBase: require.resolve('google-closure-library/closure/goog/base'),
             deps: [
@@ -62,6 +56,7 @@ module.exports = {
                 './dist/deps.js',
             ]
         }, {
+                compilation_level: 'ADVANCED',
                 language_out: 'ES5',
                 rewrite_polyfills: false,
                 jscomp_off: '*',
@@ -73,6 +68,8 @@ module.exports = {
                     './src/externs/react.ext.js',
                     './src/externs/react-dom.ext.js'
                 ],
+                // formatting: 'PRETTY_PRINT',
+                // debug: true,
             })
     ]
 };

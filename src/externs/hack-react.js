@@ -1,30 +1,51 @@
-var __REACT_DEVTOOLS_GLOBAL_HOOK__ = {};
-
-__REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE = function() {};
-__REACT_DEVTOOLS_GLOBAL_HOOK__.emit = function(evt, data) {};
-__REACT_DEVTOOLS_GLOBAL_HOOK__.getFiberRoots = function(rendererID) {};
-__REACT_DEVTOOLS_GLOBAL_HOOK__.helpers = {};
-__REACT_DEVTOOLS_GLOBAL_HOOK__.inject = function(renderer) {};
-__REACT_DEVTOOLS_GLOBAL_HOOK__.nativeMap;
-__REACT_DEVTOOLS_GLOBAL_HOOK__.nativeObjectCreate;
-__REACT_DEVTOOLS_GLOBAL_HOOK__.nativeSet;
-__REACT_DEVTOOLS_GLOBAL_HOOK__.nativeWeakMap;
-__REACT_DEVTOOLS_GLOBAL_HOOK__.off;
-__REACT_DEVTOOLS_GLOBAL_HOOK__.on;
-__REACT_DEVTOOLS_GLOBAL_HOOK__.onCommitFiberRoot;
-__REACT_DEVTOOLS_GLOBAL_HOOK__.onCommitFiberUnmount;
-__REACT_DEVTOOLS_GLOBAL_HOOK__.sub;
-__REACT_DEVTOOLS_GLOBAL_HOOK__.supportsFiber;
-
-var findNodeHandle;
-var findFiberByHostInstance;
-var findHostInstanceByFiber;
-var rendererPackageName;
-
 /**
  * externs for react component prop type
  */
-var className;
-var htmlFor;
-var raised;
-var dense;
+var defaultProps = {
+    raised: false,
+    unelevated: false,
+    outlined: false,
+    dense: false,
+    disabled: false,
+    unbounded: false,
+    initRipple: () => { },
+    className: '',
+    icon: null,
+    children: [],
+};
+
+defaultProps = {
+    className: '',
+    children: [],
+    nonInteractive: false,
+    dense: false,
+    avatarList: false,
+    twoLine: false,
+    singleSelection: false,
+    selectedIndex: -1,
+    handleSelect: () => {},
+    wrapFocus: true
+};
+
+defaultProps = {
+    className: '',
+    classNamesFromList: [],
+    attributesFromList: {},
+    childrenTabIndex: -1,
+    tabIndex: -1,
+    shouldFocus: false,
+    shouldFollowHref: false,
+    shouldToggleCheckbox: false,
+    onKeyDown: () => {},
+    onClick: () => {},
+    onFocus: () => {},
+    onBlur: () => {},
+};
+
+defaultProps = {
+    tabbableOnListItemFocus: false,
+    tabIndex: -1,
+    className: '',
+    primaryText: '',
+    secondaryText: '',
+};

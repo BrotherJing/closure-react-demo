@@ -20,4 +20,38 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-@import '@material/button/mdc-button';
+import React from 'react';
+import PropTypes from 'prop-types';
+import classnames from 'classnames';
+
+const FixedAdjust = (props) => {
+  const {
+    tag: Tag,
+    children,
+    className,
+    ...otherProps
+  } = props;
+
+  return (
+    <Tag
+      className={classnames('mdc-top-app-bar--fixed-adjust', className)}
+      {...otherProps}
+    >
+      {children}
+    </Tag>
+  );
+};
+
+FixedAdjust.propTypes = {
+  'tag': PropTypes.string,
+  'children': PropTypes.node.isRequired,
+  'className': PropTypes.string,
+};
+
+FixedAdjust.defaultProps = {
+  'tag': 'main',
+  'className': '',
+  'children': []
+};
+
+export default FixedAdjust;

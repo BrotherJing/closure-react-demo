@@ -5,11 +5,11 @@ const notepad = goog.require('tutorial.notepad');
 const TodoApp = require('./react/todoapp').default;
 const React = require('react');
 const ReactDOM = require('react-dom');
-const Redux = require('redux/dist/redux');
-const Counter = require('./redux/counter').default;
-const counter = require('./redux/reducer').default;
+// const Redux = require('redux/dist/redux');
+// const Counter = require('./redux/counter').default;
+// const counter = require('./redux/reducer').default;
 
-const store = Redux.createStore(counter);
+// const store = Redux.createStore(counter);
 
 var App = <div>
     <TodoApp/>
@@ -18,16 +18,16 @@ var App = <div>
 ReactDOM.render(App, document.getElementById('todoapp'));
 
 // redux
-const render = () => ReactDOM.render(
-    <Counter
-        value={store.getState()}
-        onIncrement={() => store.dispatch({type: 'INCREMENT'})}
-        onDecrement={() => store.dispatch({type: 'DECREMENT'})}
-    />,
-    document.getElementById('counter')
-)
-render();
-store.subscribe(render);
+// const render = () => ReactDOM.render(
+//     <Counter
+//         value={store.getState()}
+//         onIncrement={() => store.dispatch({type: 'INCREMENT'})}
+//         onDecrement={() => store.dispatch({type: 'DECREMENT'})}
+//     />,
+//     document.getElementById('counter')
+// )
+// render();
+// store.subscribe(render);
 
 // closure library component
 var noteData = [
