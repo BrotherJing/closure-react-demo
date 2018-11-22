@@ -283,6 +283,9 @@ List.propTypes = {
   'aria-orientation': PropTypes.string,
 };
 
+/**
+ * @nocollapse
+ */
 List.defaultProps = {
   className: '',
   children: [],

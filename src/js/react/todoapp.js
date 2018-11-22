@@ -5,6 +5,8 @@ import TopAppBarFixedAdjust from './component/top-app-bar/FixedAdjust';
 import List from './component/list';
 import ListItem from './component/list/ListItem';
 import ListItemText from './component/list/ListItemText';
+import TextField from './component/text-field';
+import Input from './component/text-field/Input';
 
 const string = goog.require('goog.string');
 
@@ -27,14 +29,13 @@ class TodoApp extends React.Component {
             <div className='content'>
               <TodoList items={this.state.items} />
               <form onSubmit={this.handleSubmit}>
-                <label htmlFor="new-todo">
-                  What needs to be done?
-                </label>
-                <input
-                  id="new-todo"
-                  onChange={this.handleChange}
-                  value={this.state.text}
-                />
+                <TextField
+                  label='What needs to be done?'
+                  textarea={true}>
+                  <Input
+                    value={this.state.text}
+                    onChange={this.handleChange}/>
+                </TextField>
                 <Button raised dense>
                   Add #{this.state.items.length + 1}
                 </Button>
