@@ -88,6 +88,9 @@ Icon.propTypes = {
   disabled: PropTypes.bool,
 };
 
+/**
+ * @nocollapse
+ */
 Icon.defaultProps = {
   disabled: false,
 };

@@ -120,6 +120,9 @@ ListItem.propTypes = {
   onBlur: PropTypes.func,
 };
 
+/**
+ * @nocollapse
+ */
 ListItem.defaultProps = {
   className: '',
   classNamesFromList: [],

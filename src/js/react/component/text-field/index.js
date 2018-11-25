@@ -369,6 +369,9 @@ TextField.propTypes = {
   'trailingIcon': PropTypes.element,
 };
 
+/**
+ * @nocollapse
+ */
 TextField.defaultProps = {
   className: '',
   dense: false,

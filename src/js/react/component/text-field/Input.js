@@ -245,6 +245,9 @@ Input.propTypes = {
   ]),
 };
 
+/**
+ * @nocollapse
+ */
 Input.defaultProps = {
   className: '',
   inputType: 'input',

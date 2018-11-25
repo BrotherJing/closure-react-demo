@@ -118,6 +118,9 @@ HelperText.propTypes = {
   'validation': PropTypes.bool,
 };
 
+/**
+ * @nocollapse
+ */
 HelperText.defaultProps = {
   'aria-hidden': false,
   'children': null,

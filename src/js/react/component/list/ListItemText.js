@@ -82,6 +82,9 @@ ListItemText.propTypes = {
   ]),
 };
 
+/**
+ * @nocollapse
+ */
 ListItemText.defaultProps = {
   tabbableOnListItemFocus: false,
   tabIndex: -1,

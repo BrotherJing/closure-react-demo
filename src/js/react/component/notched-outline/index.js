@@ -122,6 +122,9 @@ NotchedOutline.propTypes = {
   notchWidth: PropTypes.number,
 };
 
+/**
+ * @nocollapse
+ */
 NotchedOutline.defaultProps = {
   className: '',
   isRtl: false,
