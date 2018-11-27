@@ -2,8 +2,10 @@ const webpack = require('webpack');
 const path = require('path');
 const ClosurePlugin = require('closure-webpack-plugin');
 
+const context = path.resolve(__dirname, 'dist');
+
 module.exports = {
-    // devtool: 'source-map',
+    devtool: 'source-map',
     watchOptions: {
         ignored: /node_modules/
     },
@@ -12,7 +14,12 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.min.js'
+        filename: 'bundle.min.js',
+        devtoolModuleFilenameTemplate (info) {
+            let rel = info.resourcePath.substr(info.resourcePath.indexOf(__dirname));
+            rel = path.relative(context, rel);
+            return `${rel}`
+        }
     },
     module: {
         rules: [
