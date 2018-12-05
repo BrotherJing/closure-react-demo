@@ -13,3 +13,6 @@
     
 # there is no root_with_prefix option in deps plugin, convert the path manually
 sed -i'.bak' -e 's/gen/src\/js/g' dist/deps.js
+
+# replace \ with / for windows
+sed -i'.bak' -e 's/\\/\//g' dist/deps.js

@@ -3,7 +3,7 @@ const path = require('path');
 const ClosurePlugin = require('closure-webpack-plugin');
 
 module.exports = {
-    devtool: 'eval-source-map',
+    devtool: 'cheap-source-map',
     watchOptions: {
         ignored: /node_modules/
     },
@@ -27,7 +27,6 @@ module.exports = {
                 use: {
                     loader: "babel-loader"
                 },
-                exclude: /node_modules/
             },
             {
                 test: /\.scss$/,
