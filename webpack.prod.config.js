@@ -65,7 +65,7 @@ module.exports = {
         }, {
                 compilation_level: 'ADVANCED',
                 language_out: 'ES5',
-                rewrite_polyfills: false,
+                rewrite_polyfills: true,
                 jscomp_off: '*',
                 output_manifest: 'dist/%outname%.MF',
                 variable_renaming_report: 'dist/variable_renaming_report',
