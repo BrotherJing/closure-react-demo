@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from './component/button';
+import Button from 'closure-react-button/index';
 import TopAppBar from './component/top-app-bar';
 import TopAppBarFixedAdjust from './component/top-app-bar/FixedAdjust';
 import List from './component/list';
@@ -37,7 +37,7 @@ class TodoApp extends React.Component {
                     onChange={this.handleChange}/>
                 </TextField>
                 <Button raised dense>
-                  Add #{this.state.items.length + 1}
+                  {`Add #${this.state.items.length + 1}`}
                 </Button>
               </form>
             </div>

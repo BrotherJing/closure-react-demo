@@ -8,22 +8,6 @@ ReactAttribute.onSelect;
  * externs for react component prop type
  */
 
- /**
-  * Button
-  */
-var defaultProps = {
-    raised: false,
-    unelevated: false,
-    outlined: false,
-    dense: false,
-    disabled: false,
-    unbounded: false,
-    initRipple: () => { },
-    className: '',
-    icon: null,
-    children: [],
-};
-
 /**
  * List
  */
