@@ -14,6 +14,13 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js'
     },
+    resolve: {
+        alias: {
+            "react": path.resolve(__dirname, 'node_modules/react'),
+            "react-dom": path.resolve(__dirname, 'node_modules/react-dom'),
+            "@material": path.resolve(__dirname, 'node_modules/@material'),
+        }
+    },
     devServer: {
         contentBase: path.resolve(__dirname, 'dist'),
         historyApiFallback: true,
@@ -27,6 +34,7 @@ module.exports = {
                 use: {
                     loader: "babel-loader"
                 },
+                exclude: /node_modules\/(?!(@material|closure-react-)).*\/.*/
             },
             {
                 test: /\.scss$/,

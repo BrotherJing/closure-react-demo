@@ -21,6 +21,13 @@ module.exports = {
             return `${rel}`
         }
     },
+    resolve: {
+        alias: {
+            "react": path.resolve(__dirname, 'node_modules/react'),
+            "react-dom": path.resolve(__dirname, 'node_modules/react-dom'),
+            "@material": path.resolve(__dirname, 'node_modules/@material'),
+        }
+    },
     module: {
         rules: [
             {
@@ -28,7 +35,7 @@ module.exports = {
                 use: {
                     loader: "babel-loader"
                 },
-                exclude: /node_modules/
+                exclude: /node_modules\/(?!(closure-react-)).*\/.*/
             },
             {
                 test: /\.scss$/,
@@ -71,6 +78,7 @@ module.exports = {
                 variable_renaming_report: 'dist/variable_renaming_report',
                 property_renaming_report: 'dist/property_renaming_report',
                 externs: [
+                    './node_modules/closure-react-button/extern.js',
                     './src/externs/hack-react.js',
                     './src/externs/react.ext.js',
                     './src/externs/react-dom.ext.js'
