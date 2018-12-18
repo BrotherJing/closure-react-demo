@@ -1,4 +1,6 @@
-## Convention guide
+## Known advanced compilation issues
+
+When using react with closure compiler we found some issues. Following is a list of these issues and how we get around them. For other common issues related to material components, see the convension guide below.
 
 #### DOM attribute warning
 
@@ -37,9 +39,44 @@ constructor() {
 }
 ```
 
+## Convention guide
+
+Following are some points to note when you convert a react component to closure compatible one.
+
+#### Avoid importing re-exported modules
+
+This syntax is heavily used in the original code. For example:
+```javascript
+// list/index.js
+import {MDCListFoundation} from '@material/list/dist/mdc.list';
+```
+But closure compiler does not recognize it. We should directly import the module from where it's first exported:
+```javascript
+import MDCListFoundation from '@material/list/foundation';
+```
+
 #### defaultProps
 
-We need to add `@nocollapse` annotation to defaultProps of each component. Ohterwise they will be flatten, and then unused props will be removed.
+We need to add `@nocollapse` annotation to defaultProps of each component. Ohterwise they will be flatten during advanced compilation, and then unused props will be removed.
+```javascript
+// list/index.js
+/**
+ * @nocollapse
+ */
+List.defaultProps = {
+  className: '',
+  children: [],
+  nonInteractive: false,
+  dense: false,
+  avatarList: false,
+  twoLine: false,
+  singleSelection: false,
+  selectedIndex: -1,
+  handleSelect: () => {},
+  wrapFocus: true,
+  'aria-orientation': VERTICAL,
+};
+```
 
 #### externs for props
 
