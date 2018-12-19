@@ -78,7 +78,7 @@ module.exports = {
                 variable_renaming_report: 'dist/variable_renaming_report',
                 property_renaming_report: 'dist/property_renaming_report',
                 externs: [
-                    './node_modules/closure-react-button/extern.js',
+                    './src/externs/mdc-react.ext.js',
                     './src/externs/hack-react.js',
                     './src/externs/react.ext.js',
                     './src/externs/react-dom.ext.js'

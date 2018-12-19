@@ -1,12 +1,12 @@
 import React from 'react';
 import Button from 'closure-react-button/index';
-import TopAppBar from './component/top-app-bar';
-import TopAppBarFixedAdjust from './component/top-app-bar/FixedAdjust';
-import List from './component/list';
-import ListItem from './component/list/ListItem';
-import ListItemText from './component/list/ListItemText';
-import TextField from './component/text-field';
-import Input from './component/text-field/Input';
+import TopAppBar from 'closure-react-top-app-bar/index';
+import TopAppBarFixedAdjust from 'closure-react-top-app-bar/FixedAdjust';
+import List from 'closure-react-list/index';
+import ListItem from 'closure-react-list/ListItem';
+import ListItemText from 'closure-react-list/ListItemText';
+import TextField from 'closure-react-text-field/index';
+import Input from 'closure-react-text-field/Input';
 
 const string = goog.require('goog.string');
 
