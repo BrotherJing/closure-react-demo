@@ -187,3 +187,77 @@ defaultProps = {
   tag: 'main',
   className: '',
 };
+
+/**
+ * Select
+ */
+defaultProps = {
+  box: false,
+  className: '',
+  disabled: false,
+  floatingLabelClassName: '',
+  id: null,
+  isRtl: false,
+  lineRippleClassName: '',
+  nativeControlClassName: '',
+  notchedOutlineClassName: '',
+  onChange: () => {},
+  outlined: false,
+  options: [],
+  value: '',
+};
+
+/**
+ * NativeControl
+ */
+defaultProps = {
+  className: '',
+  children: null,
+  disabled: false,
+  foundation: {
+    handleFocus: () => {},
+    handleBlur: () => {},
+  },
+  id: null,
+  onBlur: () => {},
+  onChange: () => {},
+  onFocus: () => {},
+  onTouchStart: () => {},
+  onMouseDown: () => {},
+  setRippleCenter: () => {},
+  handleDisabled: () => {},
+  value: '',
+};
+
+/**
+ * Cell
+ */
+defaultProps = {
+  align: undefined,
+  children: undefined,
+  className: '',
+  columns: undefined,
+  desktopColumns: undefined,
+  order: undefined,
+  phoneColumns: undefined,
+  tabletColumns: undefined,
+  tag: 'div',
+};
+
+/**
+ * Grid
+ */
+defaultProps = {
+  align: undefined,
+  className: '',
+  fixedColumnWidth: false,
+  tag: 'div',
+};
+
+/**
+ * Row
+ */
+defaultProps = {
+  className: '',
+  tag: 'div',
+};

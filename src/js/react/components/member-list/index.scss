@@ -1,0 +1,55 @@
+@import "closure-react-layout-grid/index.scss";
+@import "closure-react-select/index.scss";
+
+.member-list-content {
+
+  display: table;
+  width: 100%;
+
+  &-item {
+    display: table-row;
+    height: 60px;
+    width: 100%;
+
+    &:last-child {
+      .member-list-content-item-cell {
+        border: none;
+      }
+    }
+
+    &-cell {
+      display: table-cell;
+      vertical-align: middle;
+      border-bottom: 1px solid #e6e8ea;
+
+      &-content {
+        display: flex;
+        align-items: center;
+
+        &-right {
+          justify-content: flex-end;
+        }
+
+        &-avatar {
+          margin-right: 8px;
+          &-content {
+            height: 40px;
+            overflow: hidden;
+            position: relative;
+            width: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-clip: border-box;
+            background-color: #cdd0d3;
+          }
+          &-content-link {
+            background-color: #00b19d;
+            color: #ffffff;
+          }
+        }
+      }
+    }
+  }
+}

@@ -49,6 +49,14 @@ module.exports = {
                     { loader: 'extract-loader' },
                     { loader: 'css-loader' },
                     {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: () => [
+                            require('autoprefixer')(),
+                            ],
+                        },
+                    },
+                    {
                         loader: 'sass-loader',
                         options: {
                             includePaths: ['./node_modules']

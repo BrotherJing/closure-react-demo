@@ -7,6 +7,7 @@ import ListItem from 'closure-react-list/ListItem';
 import ListItemText from 'closure-react-list/ListItemText';
 import TextField from 'closure-react-text-field/index';
 import Input from 'closure-react-text-field/Input';
+import MemberList from './components/member-list';
 
 const string = goog.require('goog.string');
 
@@ -27,7 +28,7 @@ class TodoApp extends React.Component {
             title='TODO'/>
           <TopAppBarFixedAdjust>
             <div className='content'>
-              <TodoList items={this.state.items} />
+              <MemberList items={this.state.items} />
               <form onSubmit={this.handleSubmit}>
                 <TextField
                   label='What needs to be done?'
