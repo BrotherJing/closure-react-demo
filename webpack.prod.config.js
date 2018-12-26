@@ -87,7 +87,6 @@ module.exports = {
                 property_renaming_report: 'dist/property_renaming_report',
                 externs: [
                     './src/externs/mdc-react.ext.js',
-                    './src/externs/hack-react.js',
                     './src/externs/react.ext.js',
                     './src/externs/react-dom.ext.js'
                 ],

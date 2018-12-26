@@ -76,18 +76,6 @@ module.exports = {
                 require.resolve('google-closure-library/closure/goog/deps'),
                 './dist/deps.js',
             ]
-        }, {
-                language_out: 'ES5',
-                rewrite_polyfills: false,
-                jscomp_off: '*',
-                output_manifest: 'dist/%outname%.MF',
-                variable_renaming_report: 'dist/variable_renaming_report',
-                property_renaming_report: 'dist/property_renaming_report',
-                externs: [
-                    './src/externs/hack-react.js',
-                    './src/externs/react.ext.js',
-                    './src/externs/react-dom.ext.js'
-                ],
-            })
+        }, {})
     ]
 };

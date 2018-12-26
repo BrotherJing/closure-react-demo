@@ -9,6 +9,8 @@
         "build-dev": "run-s build:deps build:webpack-dev"
     },
     "dependencies": {
+        "@material/select": "^0.42.1",
+        "@material/textfield": "^0.42.1",
         "classnames": "^2.2.6",
         "closure-react-button": "^0.7.4",
         "closure-react-layout-grid": "^0.7.7",

@@ -20,6 +20,8 @@ ReactAttribute.onSelect;
 
 After adding this extern, we can use production build of react without error. I forget how I found this...
 
+** Note ** After we update the extern file to newer version this won't occur.
+
 #### class properties
 
 ```javascript
@@ -38,3 +40,7 @@ constructor() {
     });
 }
 ```
+
+### Uncaught TypeError: Cannot read property 'prototype' of undefined
+
+Some code in `material-components-web` violate closure compiler rule, where re-exported module syntax is used(see `mdc-select/foundation.js`). Currently there's no workaround at our side, unless we file an issue or maintain a fork of the library.
