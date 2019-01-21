@@ -19,14 +19,15 @@ class MemberList extends React.Component {
             </div>
             <div className={'member-list-content-item-cell'}>
               <div className={'member-list-content-item-cell-content member-list-content-item-cell-content-right'}>
-                <Select label='Role'>
+                {/* <Select label='Role'>
                   <option disabled></option>
                   <option value='1'>Co-owner</option>
                   <option value='2'>Editor</option>
                   <option value='3'>Commenter</option>
                   <option value='4'>Downloader</option>
                   <option value='5'>Viewer</option>
-                </Select>
+                </Select> */}
+                Owner
               </div>
             </div>
           </div>

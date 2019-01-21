@@ -14,6 +14,11 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js'
     },
+    externals: {
+        '@material-ui/core': 'window["material-ui"]',
+        'react': 'React',
+        'react-dom': 'ReactDOM',
+    },
     resolve: {
         alias: {
             "react": path.resolve(__dirname, 'node_modules/react'),
@@ -34,7 +39,7 @@ module.exports = {
                 use: {
                     loader: "babel-loader"
                 },
-                exclude: /node_modules\/(?!(@material|closure-react-)).*\/.*/
+                exclude: /node_modules\/(?!(@material\/|closure-react-.*\/)).*/
             },
             {
                 test: /\.scss$/,

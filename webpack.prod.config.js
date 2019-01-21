@@ -21,6 +21,11 @@ module.exports = {
             return `${rel}`
         }
     },
+    externals: {
+        '@material-ui/core': 'window[\'material-ui\']',
+        'react': 'React',
+        'react-dom': 'ReactDOM',
+    },
     resolve: {
         alias: {
             "react": path.resolve(__dirname, 'node_modules/react'),
@@ -88,7 +93,9 @@ module.exports = {
                 externs: [
                     './src/externs/mdc-react.ext.js',
                     './src/externs/react.ext.js',
-                    './src/externs/react-dom.ext.js'
+                    './src/externs/react-dom.ext.js',
+                    './src/externs/material-ui.ext.js',
+                    './src/externs/hack.ext.js',
                 ],
                 // formatting: 'PRETTY_PRINT',
                 // debug: true,
