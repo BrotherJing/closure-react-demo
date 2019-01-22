@@ -1,14 +1,8 @@
 import React from 'react';
-import Mui from '@material-ui/core';
+import {Button, AppBar, Toolbar, Typography} from '@material-ui/core';
 // const Button = require('@material-ui/core').Button;
-import Button from 'closure-react-button/index';
-import TopAppBar from 'closure-react-top-app-bar/index';
-import TopAppBarFixedAdjust from 'closure-react-top-app-bar/FixedAdjust';
-import List from 'closure-react-list/index';
-import ListItem from 'closure-react-list/ListItem';
-import ListItemText from 'closure-react-list/ListItemText';
-import TextField from 'closure-react-text-field/index';
-import Input from 'closure-react-text-field/Input';
+// import Button from 'closure-react-button/index';
+import {TextField} from '@material-ui/core';
 import MemberList from './components/member-list';
 
 const string = goog.require('goog.string');
@@ -26,25 +20,28 @@ class TodoApp extends React.Component {
     render() {
       return (
         <div>
-          <TopAppBar
-            title='TODO'/>
-          <TopAppBarFixedAdjust>
-            <div className='content'>
-              <MemberList items={this.state.items} />
-              <form onSubmit={this.handleSubmit}>
-                <TextField
-                  label='What needs to be done?'
-                  textarea={true}>
-                  <Input
-                    value={this.state.text}
-                    onChange={this.handleChange}/>
-                </TextField>
-                <Button raised dense>
-                  {`Add #${this.state.items.length + 1}`}
-                </Button>
-              </form>
-            </div>
-          </TopAppBarFixedAdjust>
+          <AppBar position="static" color="primary">
+            <Toolbar>
+              <Typography variant="h6" color="inherit">
+                Participants
+              </Typography>
+            </Toolbar>
+          </AppBar>
+          <div className='content'>
+            <MemberList items={this.state.items} />
+            <form onSubmit={this.handleSubmit}>
+              <TextField
+                id="standard-name"
+                label="What to do?"
+                value={this.state.text}
+                onChange={this.handleChange}
+                margin="normal"
+              />
+              <Button variant="contained" color="secondary" onClick={this.handleSubmit}>
+                {`Add #${this.state.items.length + 1}`}
+              </Button>
+            </form>
+          </div>
         </div>
       );
     }
@@ -66,20 +63,6 @@ class TodoApp extends React.Component {
         items: state.items.concat(newItem),
         text: ''
       }));
-    }
-  }
-  
-  class TodoList extends React.Component {
-    render() {
-      return (
-        <List>
-          {this.props.items.map(item => (
-            <ListItem key={item.id}>
-              <ListItemText primaryText={item.text}/>
-            </ListItem>
-          ))}
-        </List>
-      );
     }
   }
   

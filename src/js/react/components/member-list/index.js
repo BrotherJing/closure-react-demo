@@ -1,5 +1,5 @@
 import React from 'react';
-import Select from 'closure-react-select/index';
+import {FormControl, Select, MenuItem, OutlinedInput} from '@material-ui/core';
 
 class MemberList extends React.Component {
   render() {
@@ -19,15 +19,20 @@ class MemberList extends React.Component {
             </div>
             <div className={'member-list-content-item-cell'}>
               <div className={'member-list-content-item-cell-content member-list-content-item-cell-content-right'}>
-                {/* <Select label='Role'>
-                  <option disabled></option>
-                  <option value='1'>Co-owner</option>
-                  <option value='2'>Editor</option>
-                  <option value='3'>Commenter</option>
-                  <option value='4'>Downloader</option>
-                  <option value='5'>Viewer</option>
-                </Select> */}
-                Owner
+              <FormControl>
+                <Select
+                  value={'5'}
+                  inputProps={{
+                    name: 'role',
+                    id: 'role-simple',
+                  }}>
+                  <MenuItem value='1'>Co-owner</MenuItem>
+                  <MenuItem value='2'>Editor</MenuItem>
+                  <MenuItem value='3'>Commenter</MenuItem>
+                  <MenuItem value='4'>Downloader</MenuItem>
+                  <MenuItem value='5'>Viewer</MenuItem>
+                </Select>
+              </FormControl>
               </div>
             </div>
           </div>
