@@ -15,7 +15,9 @@ module.exports = {
         filename: 'bundle.js'
     },
     externals: {
-        '@material-ui/core': 'window["material-ui"]',
+        '@material-ui/core': 'MaterialUI',
+        '@material-ui/core/styles': 'MaterialUIStyles',
+        '@material-ui/core/colors': 'MaterialUIColors',
         'react': 'React',
         'react-dom': 'ReactDOM',
     },

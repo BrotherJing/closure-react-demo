@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# remove previous generated files
+rm -rf ./gen
+
 # closure deps plugin can't parse jsx,
 # so we transpile the files and put in ./gen
 ./node_modules/.bin/babel src/js --out-dir gen

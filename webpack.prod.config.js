@@ -22,7 +22,9 @@ module.exports = {
         }
     },
     externals: {
-        '@material-ui/core': 'window[\'material-ui\']',
+        '@material-ui/core': 'MaterialUI',
+        '@material-ui/core/styles': 'MaterialUIStyles',
+        '@material-ui/core/colors': 'MaterialUIColors',
         'react': 'React',
         'react-dom': 'ReactDOM',
     },
@@ -94,9 +96,10 @@ module.exports = {
                     './src/externs/react.ext.js',
                     './src/externs/react-dom.ext.js',
                     './src/externs/material-ui.ext.js',
+                    './src/externs/mui-components.ext.js',
                 ],
-                // formatting: 'PRETTY_PRINT',
-                // debug: true,
+                formatting: 'PRETTY_PRINT',
+                debug: true,
             })
     ]
 };
