@@ -7,7 +7,7 @@
         "build:webpack-prod": "cross-env NODE_ENV=production node_modules/.bin/webpack --config webpack.prod.config.js --progress",
         "build": "run-s build:deps build:webpack-prod",
         "build-dev": "run-s build:deps build:webpack-dev",
-        "build:lib": "cross-env NODE_ENV=development node_modules/.bin/webpack --config webpack.lib.config.js --progress"
+        "build:lib": "cross-env NODE_ENV=production node_modules/.bin/webpack --config webpack.lib.config.js --progress"
     },
     "dependencies": {
         "@material-ui/core": "3.2.0",

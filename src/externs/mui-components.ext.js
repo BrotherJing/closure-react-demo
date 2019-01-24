@@ -1,46 +1,64 @@
 var MuiThemeProviderProps = {
-  theme: null,
-  sheetsManager: null,
-  disableStylesGeneration: null,
-  children: null,
+  theme,
+  sheetsManager,
+  disableStylesGeneration,
+  children,
 }
 
 var Select = {
-  inputProps: null,
+  inputProps,
 }
 
 var ThemeOptions = {
-  shape: null,
-  breakpoints: null,
-  direction: null,
-  mixins: null,
-  overrides: null,
-  palette: null,
-  props: null,
-  shadows: null,
-  spacing: null,
-  transitions: null,
-  typography: null,
-  zIndex: null,
+  shape,
+  breakpoints,
+  direction,
+  mixins,
+  overrides,
+  palette,
+  props,
+  shadows,
+  spacing,
+  transitions,
+  typography,
+  zIndex,
 }
 
 var Theme = {
-  shape: null,
-  breakpoints: null,
-  direction: null,
-  mixins: null,
-  overrides: null,
-  palette: null,
-  props: null,
-  shadows: null,
-  spacing: null,
-  transitions: null,
-  typography: null,
-  zIndex: null,
+  shape,
+  breakpoints,
+  direction,
+  mixins,
+  overrides,
+  palette,
+  props,
+  shadows,
+  spacing,
+  transitions,
+  typography,
+  zIndex,
 }
 
 var FontStyleOptions = {
-  htmlFontSize: null,
-  allVariants: null,
-  useNextVariants: null,
+  htmlFontSize,
+  allVariants,
+  useNextVariants,
+}
+
+var StyledComponentProps = {
+  classes,
+  innerRef,
+}
+
+var GridProps = {
+  alignContent,
+  alignItems,
+  component,
+  container,
+  direction,
+  item,
+  justify,
+  spacing,
+  wrap,
+  zeroMinWidth,
 }

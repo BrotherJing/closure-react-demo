@@ -109,8 +109,8 @@ module.exports = {
                     './src/externs/material-ui.ext.js',
                     './src/externs/mui-components.ext.js',
                 ],
-                formatting: 'PRETTY_PRINT',
-                debug: true,
+                // formatting: 'PRETTY_PRINT',
+                // debug: true,
             })
     ]
 };

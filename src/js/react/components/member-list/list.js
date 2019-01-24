@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {FormControl, Select, MenuItem} from '@material-ui/core';
 
 class MemberList extends React.Component {
@@ -43,6 +44,17 @@ class MemberList extends React.Component {
       </div>
     );
   }
+}
+
+MemberList.propTypes = {
+  items: PropTypes.array,
+};
+
+/**
+ * @nocollapse
+ */
+MemberList.defaultProps = {
+  items: [],
 }
 
 export default MemberList;

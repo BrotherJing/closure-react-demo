@@ -2560,14 +2560,6 @@ eslint-config-closure-es5@^0.1.1:
     eslint-config-closure-base "^0.1.1"
     eslint-plugin-closure "^0.1.1"
 
-eslint-config-closure-es6@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/eslint-config-closure-es6/-/eslint-config-closure-es6-0.1.1.tgz#b5771d539d7648d76177a78fca6f975b7306c9cb"
-  integrity sha512-3IwSfmXuGMyur4QXP0pIOrkls25Cm9VwAfoGngS64H2FoF+ZU/CZqH97/JzfEf0uAWwNkl/Jzlm9Cz4xr81EHQ==
-  dependencies:
-    eslint-config-closure-base "^0.1.1"
-    eslint-plugin-closure "^0.1.1"
-
 eslint-config-react-app@^3.0.5:
   version "3.0.6"
   resolved "https://registry.yarnpkg.com/eslint-config-react-app/-/eslint-config-react-app-3.0.6.tgz#addcae1359235941e95f3c96970b7ac8552e1130"
