@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const ClosurePlugin = require('closure-webpack-plugin');
+const paths = require('./config/paths');
 
 const context = path.resolve(__dirname, 'dist');
 
@@ -28,21 +29,31 @@ module.exports = {
         'react': 'React',
         'react-dom': 'ReactDOM',
     },
-    resolve: {
-        alias: {
-            "react": path.resolve(__dirname, 'node_modules/react'),
-            "react-dom": path.resolve(__dirname, 'node_modules/react-dom'),
-            "@material": path.resolve(__dirname, 'node_modules/@material'),
-        }
-    },
     module: {
         rules: [
+            // First, run the linter.
+            // It's important to do this before Babel processes the JS.
+            {
+              test: /\.(js|jsx)$/,
+              enforce: 'pre',
+              use: [
+                {
+                  options: {
+                    formatter: require.resolve('react-dev-utils/eslintFormatter'),
+                    eslintPath: require.resolve('eslint'),
+                    
+                  },
+                  loader: require.resolve('eslint-loader'),
+                },
+              ],
+              include: paths.appSrc,
+            },
             {
                 test: /(\.jsx|\.js)$/,
+                include: paths.appSrc,
                 use: {
                     loader: "babel-loader"
                 },
-                exclude: /node_modules\/(?!(closure-react-)).*\/.*/
             },
             {
                 test: /\.scss$/,

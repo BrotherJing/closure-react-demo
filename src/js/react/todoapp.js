@@ -5,10 +5,9 @@ import {createMuiTheme, MuiThemeProvider} from '@material-ui/core';
 // import Button from 'closure-react-button/index';
 import {TextField} from '@material-ui/core';
 import MemberDialog from './components/member-list/dialog';
+import './todoapp.scss';
 
 const string = goog.require('goog.string');
-
-import './todoapp.scss'
 
 const theme = createMuiTheme({
   typography: {
@@ -16,19 +15,19 @@ const theme = createMuiTheme({
   },
 });
 class TodoApp extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = { 
-        items: [], 
-        text: '',
-        dialogOpen: false,
-      };
-      this.handleChange = this.handleChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
-    }
-  
-    render() {
-      return (
+  constructor(props) {
+    super(props);
+    this.state = {
+      items: [],
+      text: '',
+      dialogOpen: false,
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  render() {
+    return (
         <MuiThemeProvider theme={theme}>
           <div>
             <AppBar position="static" color="primary">
@@ -52,7 +51,8 @@ class TodoApp extends React.Component {
                   onChange={this.handleChange}
                   margin="normal"
                 />
-                <Button variant="contained" color="secondary" onClick={this.handleSubmit}>
+                <Button variant="contained" color="secondary"
+                  onClick={this.handleSubmit}>
                   {`Add #${this.state.items.length + 1}`}
                 </Button>
               </form>
@@ -63,34 +63,40 @@ class TodoApp extends React.Component {
           </div>
         </MuiThemeProvider>
       );
-    }
-
-    handleClickOpen = (e) => {
-      this.setState({ dialogOpen: true });
-    }
-
-    onDialogClose = (e) => {
-      this.setState({ dialogOpen: false });
-    }
-  
-    handleChange(e) {
-      this.setState({ text: e.target.value });
-    }
-  
-    handleSubmit(e) {
-      e.preventDefault();
-      if (!this.state.text.length) {
-        return;
-      }
-      const newItem = {
-        text: string.capitalize(this.state.text),
-        id: Date.now()
-      };
-      this.setState(state => ({
-        items: state.items.concat(newItem),
-        text: ''
-      }));
-    }
   }
-  
+
+  handleClickOpen = (e) => {
+    this.setState({
+      dialogOpen: true,
+    });
+  }
+
+  onDialogClose = (e) => {
+    this.setState({
+      dialogOpen: false,
+    });
+  }
+
+  handleChange(e) {
+    this.setState({
+      text: e.target.value,
+    });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    if (!this.state.text.length) {
+      return;
+    }
+    const newItem = {
+      text: string.capitalize(this.state.text),
+      id: Date.now(),
+    };
+    this.setState(state => ({
+      items: state.items.concat(newItem),
+      text: '',
+    }));
+  }
+}
+
 export default TodoApp;

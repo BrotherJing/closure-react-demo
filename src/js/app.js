@@ -11,9 +11,9 @@ const ReactDOM = require('react-dom');
 
 // const store = Redux.createStore(counter);
 
-var App = <div>
+const App = <div>
     <TodoApp/>
-</div>
+</div>;
 // react component
 ReactDOM.render(App, document.getElementById('todoapp'));
 
@@ -30,8 +30,8 @@ ReactDOM.render(App, document.getElementById('todoapp'));
 // store.subscribe(render);
 
 // closure library component
-var noteData = [
-    {'title': 'Note 1', 'content': 'Content of Note 1'},
-    {'title': 'Note 2', 'content': 'Content of Note 2'}];
-var noteListElement = document.getElementById('notes');
-var notes = notepad.makeNotes(noteData, noteListElement);
+const noteData = [
+    {title: 'Note 1', content: 'Content of Note 1'},
+    {title: 'Note 2', content: 'Content of Note 2'}];
+const noteListElement = document.getElementById('notes');
+const notes = notepad.makeNotes(noteData, noteListElement);// eslint-disable-line no-unused-vars

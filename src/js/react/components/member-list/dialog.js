@@ -2,11 +2,11 @@ import React from 'react';
 import MemberList from './list';
 
 import {
-  Button, 
-  Dialog, 
-  DialogActions, 
-  DialogContent, 
-  DialogTitle
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
 } from '@material-ui/core';
 
 class MemberDialog extends React.Component {
@@ -26,7 +26,7 @@ class MemberDialog extends React.Component {
             </Button>
           </DialogActions>
       </Dialog>
-    )
+    );
   }
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import {FormControl, Select, MenuItem, OutlinedInput} from '@material-ui/core';
+import {FormControl, Select, MenuItem} from '@material-ui/core';
 
 class MemberList extends React.Component {
   render() {
@@ -10,7 +10,9 @@ class MemberList extends React.Component {
             <div className={'member-list-content-item-cell'}>
               <div className={'member-list-content-item-cell-content'}>
                 <div className={'member-list-content-item-cell-content-avatar'}>
-                  <img className={'member-list-content-item-cell-content-avatar-content'} src={'dist/undefined.jpg'}/>
+                  <img className={
+                    'member-list-content-item-cell-content-avatar-content'}
+                    src={'dist/undefined.jpg'} alt={'avatar'}/>
                 </div>
                 <div>
                   <span>{item.text}</span>
@@ -18,7 +20,8 @@ class MemberList extends React.Component {
               </div>
             </div>
             <div className={'member-list-content-item-cell'}>
-              <div className={'member-list-content-item-cell-content member-list-content-item-cell-content-right'}>
+              <div className={
+                'member-list-content-item-cell-content member-list-content-item-cell-content-right'}>
               <FormControl>
                 <Select
                   value={'5'}

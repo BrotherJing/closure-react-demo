@@ -18,9 +18,9 @@ goog.require('goog.ui.Zippy');
  *     instances.
  */
 tutorial.notepad.makeNotes = function(data, noteContainer) {
-  var notes = [];
-  for (var i = 0; i < data.length; i++) {
-    var note = 
+  const notes = [];
+  for (let i = 0; i < data.length; i++) {
+    const note =
       new tutorial.notepad.Note(data[i].title, data[i].content, noteContainer);
     notes.push(note);
     note.makeNoteDom();
@@ -47,14 +47,15 @@ tutorial.notepad.Note = function(title, content, noteContainer) {
 
 /**
  * Creates the DOM structure for the note and adds it to the document.
+ * @return {goog.ui.Zippy}
  */
 tutorial.notepad.Note.prototype.makeNoteDom = function() {
   // Create DOM structure to represent the note.
   this.headerElement = goog.dom.createDom(
-      goog.dom.TagName.DIV, {'style': 'background-color:#EEE'}, this.title);
+      goog.dom.TagName.DIV, {style: 'background-color:#EEE'}, this.title);
   this.contentElement =
       goog.dom.createDom(goog.dom.TagName.DIV, null, this.content);
-  var newNote = goog.dom.createDom(
+  const newNote = goog.dom.createDom(
       goog.dom.TagName.DIV, null, this.headerElement, this.contentElement);
 
   // Add the note's DOM structure to the document.
