@@ -23,9 +23,10 @@ module.exports = {
         }
     },
     externals: {
-        '@material-ui/core': 'MaterialUI',
-        '@material-ui/core/styles': 'MaterialUIStyles',
-        '@material-ui/core/colors': 'MaterialUIColors',
+        '@material-ui/core': 'window["material-ui"]',
+        '@material-ui/core/styles': 'window["material-ui"]',
+        '@material-ui/core/colors': 'window["material-ui"]["colors"]',
+        'prop-types': 'PropTypes',
         'react': 'React',
         'react-dom': 'ReactDOM',
     },

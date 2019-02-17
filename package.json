@@ -66,10 +66,9 @@
         "react-dev-utils": "^6.1.1",
         "sass-loader": "^7.1.0",
         "sinon": "^7.2.3",
-        "uglifyjs-3-webpack-plugin": "^1.2.4",
-        "umd-compat-loader": "^2.1.1",
         "webpack": "^3.12.0",
-        "webpack-dev-server": "^2.x"
+        "webpack-dev-server": "^2.x",
+        "webpack-merge-and-include-globally": "^2.1.14"
     },
     "eslintConfig": {
         "extends": [

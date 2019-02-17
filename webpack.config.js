@@ -15,18 +15,12 @@ module.exports = {
         filename: 'bundle.js'
     },
     externals: {
-        '@material-ui/core': 'MaterialUI',
-        '@material-ui/core/styles': 'MaterialUIStyles',
-        '@material-ui/core/colors': 'MaterialUIColors',
+        '@material-ui/core': 'window["material-ui"]',
+        '@material-ui/core/styles': 'window["material-ui"]',
+        '@material-ui/core/colors': 'window["material-ui"]["colors"]',
+        'prop-types': 'PropTypes',
         'react': 'React',
         'react-dom': 'ReactDOM',
-    },
-    resolve: {
-        alias: {
-            "react": path.resolve(__dirname, 'node_modules/react'),
-            "react-dom": path.resolve(__dirname, 'node_modules/react-dom'),
-            "@material": path.resolve(__dirname, 'node_modules/@material'),
-        }
     },
     devServer: {
         contentBase: path.resolve(__dirname, 'dist'),
