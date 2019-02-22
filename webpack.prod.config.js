@@ -29,7 +29,6 @@ module.exports = {
         'prop-types': 'PropTypes',
         'react': 'React',
         'react-dom': 'ReactDOM',
-        'prop-types': 'Proptypes',
     },
     module: {
         rules: [

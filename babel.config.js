@@ -9,6 +9,9 @@ module.exports = function(api) {
         ["@babel/plugin-proposal-class-properties", { "loose": true }],
         "@babel/plugin-transform-destructuring"
     ];
+    if (api.env('production')) {
+        plugins.push('transform-react-remove-prop-types');
+    }
     return {
         presets,
         plugins

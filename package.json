@@ -32,6 +32,7 @@
         "autoprefixer": "^9.4.3",
         "babel-eslint": "^9.0.0",
         "babel-loader": "^8.0.4",
+        "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
         "bfj": "^6.1.1",
         "chai": "^4.2.0",
         "closure-webpack-plugin": "^1.1.1",
