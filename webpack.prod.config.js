@@ -90,7 +90,7 @@ module.exports = {
         new webpack.EnvironmentPlugin(['NODE_ENV']),
         new ClosurePlugin({
             mode: 'AGGRESSIVE_BUNDLE',
-            platform: 'native',
+            platform: 'java',
             closureLibraryBase: require.resolve('google-closure-library/closure/goog/base'),
             deps: [
                 require.resolve('google-closure-library/closure/goog/deps'),
@@ -110,6 +110,10 @@ module.exports = {
                     './src/externs/material-ui.ext.js',
                     './src/externs/mui-components.ext.js',
                 ],
+                extraCommandArgs: [
+                    '-Xmx2g',
+                    '-Xss8m'
+                ]
                 // formatting: 'PRETTY_PRINT',
                 // debug: true,
             })
