@@ -17,8 +17,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'src/main/webapp/static/dynamic_resources/*_en.js', // our text resource
-      'src/main/webapp/test/index.js',
+      'src/test/index.js',
     ],
 
 
@@ -30,7 +29,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'src/main/webapp/test/index.js': 'webpack'
+      'src/test/index.js': 'webpack'
     },
 
     webpack: {
@@ -40,9 +39,9 @@ module.exports = function(config) {
           {
             test: /\.js$/,
             include: [
-              path.resolve(__dirname, 'src/main/webapp/js/react'),
-              path.resolve(__dirname, 'src/main/webapp/js/spreadsheet'),
-              path.resolve(__dirname, 'src/main/webapp/test'),
+              path.resolve(__dirname, 'src/js/react'),
+              path.resolve(__dirname, 'src/js/spreadsheet'),
+              path.resolve(__dirname, 'src/test'),
             ],
             use: {
               loader: 'babel-loader',
@@ -63,10 +62,10 @@ module.exports = function(config) {
       plugins: [
         new ClosurePlugin({
           mode: 'NONE',
-          closureLibraryBase: 'src/main/webapp/lib/closure-library/closure/goog/base.js',
+          closureLibraryBase: require.resolve('google-closure-library/closure/goog/base'),
           deps: [
-            'src/main/webapp/js/deps.js', // dependencies for closure, bt and collabo
-            'src/main/webapp/js/ess-deps.js', // dependencies for new ess
+              require.resolve('google-closure-library/closure/goog/deps'),
+              './dist/deps.js',
           ]
         }),
       ]

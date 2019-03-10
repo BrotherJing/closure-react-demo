@@ -33,6 +33,7 @@ class MemberDialog extends React.Component {
             <Button onClick={this.props.onClose}>
               Close
             </Button>
+            <button/>
           </DialogActions>
       </Dialog>
     );

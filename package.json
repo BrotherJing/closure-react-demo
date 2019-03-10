@@ -8,9 +8,9 @@
         "build": "run-s build:deps build:webpack-prod",
         "build-dev": "run-s build:deps build:webpack-dev",
         "build:lib": "cross-env NODE_ENV=production node_modules/.bin/webpack --config webpack.lib.config.js --progress",
-        "test:watch": "karma start karma.config.js --auto-watch",
+        "test:watch": "NODE_ENV=test karma start karma.config.js --auto-watch",
         "test:unit": "NODE_ENV=test karma start karma.config.js --single-run",
-        "test:unit-ci": "karma start karma.ci.js --single-run"
+        "test:unit-ci": "NODE_ENV=test karma start karma.ci.js --single-run"
     },
     "dependencies": {
         "@material-ui/core": "3.2.0",
@@ -32,6 +32,8 @@
         "autoprefixer": "^9.4.3",
         "babel-eslint": "^9.0.0",
         "babel-loader": "^8.0.4",
+        "babel-plugin-istanbul": "^5.1.1",
+        "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
         "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
         "bfj": "^6.1.1",
         "chai": "^4.2.0",
