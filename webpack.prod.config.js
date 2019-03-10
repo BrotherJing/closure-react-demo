@@ -107,6 +107,7 @@ module.exports = {
                 externs: [
                     './src/externs/react.ext.js',
                     './src/externs/react-dom.ext.js',
+                    './src/externs/prop-types.ext.js',
                     './src/externs/material-ui.ext.js',
                     './src/externs/mui-components.ext.js',
                 ],
