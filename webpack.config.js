@@ -22,12 +22,6 @@ module.exports = {
         'react': 'React',
         'react-dom': 'ReactDOM',
     },
-    devServer: {
-        contentBase: path.resolve(__dirname, 'dist'),
-        historyApiFallback: true,
-        inline: true,
-        // hot: true
-    },
     module: {
         rules: [
             {

@@ -4,6 +4,27 @@
 
 A sample project showing how to integrate closure library with react(or other 3rd-party lib), and use closure compiler to minify the code.
 
+#### Getting started
+
+```bash
+yarn install
+yarn run build-dev
+```
+Then open `index.html`.
+
+#### Production build(Closure compiler advanced mode)
+
+```bash
+yarn run build
+```
+Then open `advanced.html`.
+
+#### Run test
+
+```bash
+yarn run test:unit 
+```
+
 ## Feature list
 
 - [x] React component and closure library component demo
