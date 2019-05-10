@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import TextField from '@material-ui/core/TextField';
+import Icon from '@material-ui/core/Icon';
 import MemberDialog from './components/member-list/dialog';
 import LetterAvatars from './components/member-list/icon-list';
 import './todoapp.scss';
@@ -36,6 +37,9 @@ class TodoApp extends React.Component {
           <div>
             <AppBar position="static" color="primary">
               <Toolbar>
+                <Icon fontSize="large">
+                  add_circle
+                </Icon>
                 <Typography variant="h6" color="inherit">
                   Participants
                 </Typography>
