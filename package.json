@@ -37,7 +37,7 @@
         "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
         "bfj": "^6.1.1",
         "chai": "^4.2.0",
-        "closure-webpack-plugin": "^1.2.0",
+        "closure-webpack-plugin": "^2.0.1",
         "cross-env": "^5.2.0",
         "css-loader": "^1.0.1",
         "enzyme": "^3.8.0",
@@ -55,7 +55,7 @@
         "extract-loader": "^3.0.0",
         "file-loader": "^2.0.0",
         "fs-extra": "^7.0.0",
-        "google-closure-compiler": "^20181008.0.0",
+        "google-closure-compiler": "^20181231.0.0-webpack-beta",
         "karma": "^4.0.0",
         "karma-chrome-launcher": "^2.2.0",
         "karma-coverage": "^1.1.2",
@@ -69,7 +69,8 @@
         "react-dev-utils": "^6.1.1",
         "sass-loader": "^7.1.0",
         "sinon": "^7.2.3",
-        "webpack": "^3.12.0",
+        "webpack": "^4.31.0",
+        "webpack-cli": "^3.3.2",
         "webpack-merge-and-include-globally": "^2.1.14"
     },
     "eslintConfig": {

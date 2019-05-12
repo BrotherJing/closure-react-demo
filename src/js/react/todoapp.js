@@ -1,9 +1,12 @@
 import React from 'react';
-import {Grid, Button, AppBar, Toolbar, Typography} from '@material-ui/core';
-import {createMuiTheme, MuiThemeProvider} from '@material-ui/core';
-// const Button = require('@material-ui/core').Button;
-// import Button from 'closure-react-button/index';
-import {TextField} from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import TextField from '@material-ui/core/TextField';
 import MemberDialog from './components/member-list/dialog';
 import LetterAvatars from './components/member-list/icon-list';
 import './todoapp.scss';

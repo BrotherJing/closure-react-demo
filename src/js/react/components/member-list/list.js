@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {FormControl, Select, MenuItem} from '@material-ui/core';
+import FormControl from '@material-ui/core/FormControl'
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
 
 class MemberList extends React.Component {
   render() {

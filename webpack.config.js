@@ -2,7 +2,29 @@ const webpack = require('webpack');
 const path = require('path');
 const ClosurePlugin = require('closure-webpack-plugin');
 
+/** Callbacks with global UMD-name of material-ui imports */
+function externalMaterialUI (_, module, callback) {
+    var isMaterialUIComponent = /^@material-ui\/core\/([^/]+)$/;
+    var isStyle = /^@material-ui\/core\/styles\/([^/]+)$/;
+    var match = isMaterialUIComponent.exec(module);
+    if (match === null) {
+        match = isStyle.exec(module);
+    }
+    if (match !== null) {
+        var component = match[1];
+        return callback(null, `window["material-ui"].${component}`);
+    }
+    var isColor = /^@material-ui\/core\/colors\/([^/]+)$/;
+    match = isColor.exec(module);
+    if (match !== null) {
+        var component = match[1];
+        return callback(null, `window["material-ui"]["colors"].${component}`);
+    }
+    callback();
+}
+
 module.exports = {
+    mode: 'development',
     devtool: 'cheap-source-map',
     watchOptions: {
         ignored: /node_modules/
@@ -14,14 +36,14 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js'
     },
-    externals: {
-        '@material-ui/core': 'window["material-ui"]',
-        '@material-ui/core/styles': 'window["material-ui"]',
-        '@material-ui/core/colors': 'window["material-ui"]["colors"]',
-        'prop-types': 'PropTypes',
-        'react': 'React',
-        'react-dom': 'ReactDOM',
-    },
+    externals: [
+        {
+            'prop-types': 'PropTypes',
+            'react': 'React',
+            'react-dom': 'ReactDOM',
+        },
+        externalMaterialUI
+    ],
     module: {
         rules: [
             {
@@ -63,14 +85,12 @@ module.exports = {
     plugins: [
         new webpack.BannerPlugin('license MIT'),
         new webpack.EnvironmentPlugin(['NODE_ENV']),
-        new ClosurePlugin({
-            mode: 'NONE',
-            platform: 'native',
+        new ClosurePlugin.LibraryPlugin({
             closureLibraryBase: require.resolve('google-closure-library/closure/goog/base'),
             deps: [
                 require.resolve('google-closure-library/closure/goog/deps'),
-                './dist/deps.js',
+                path.resolve(__dirname, './dist/deps.js'),
             ]
-        }, {})
+        })
     ]
 };

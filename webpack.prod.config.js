@@ -5,13 +5,34 @@ const paths = require('./config/paths');
 
 const context = path.resolve(__dirname, 'dist');
 
+/** Callbacks with global UMD-name of material-ui imports */
+function externalMaterialUI (_, module, callback) {
+    var isMaterialUIComponent = /^@material-ui\/core\/([^/]+)$/;
+    var isStyle = /^@material-ui\/core\/styles\/([^/]+)$/;
+    var match = isMaterialUIComponent.exec(module);
+    if (match === null) {
+        match = isStyle.exec(module);
+    }
+    if (match !== null) {
+        var component = match[1];
+        return callback(null, `window["material-ui"].${component}`);
+    }
+    var isColor = /^@material-ui\/core\/colors\/([^/]+)$/;
+    match = isColor.exec(module);
+    if (match !== null) {
+        var component = match[1];
+        return callback(null, `window["material-ui"]["colors"].${component}`);
+    }
+    callback();
+}
+
 module.exports = {
     devtool: 'source-map',
     watchOptions: {
         ignored: /node_modules/
     },
     entry: {
-        main: './src/js/main.js'
+        main: path.resolve(__dirname, './src/js/main.js')
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -22,14 +43,14 @@ module.exports = {
             return `${rel}`
         }
     },
-    externals: {
-        '@material-ui/core': 'window["material-ui"]',
-        '@material-ui/core/styles': 'window["material-ui"]',
-        '@material-ui/core/colors': 'window["material-ui"]["colors"]',
-        'prop-types': 'PropTypes',
-        'react': 'React',
-        'react-dom': 'ReactDOM',
-    },
+    externals: [
+        {
+            'prop-types': 'PropTypes',
+            'react': 'React',
+            'react-dom': 'ReactDOM',
+        },
+        externalMaterialUI
+    ],
     module: {
         rules: [
             // First, run the linter.
@@ -85,38 +106,48 @@ module.exports = {
             }
         ]
     },
+    optimization: {
+      minimize: true,
+      minimizer: [
+        new ClosurePlugin({
+            mode: 'AGGRESSIVE_BUNDLE',
+            platform: 'native',
+            extraCommandArgs: [
+                '-Xmx2g',
+                '-Xss8m'
+            ]
+        }, {
+            language_out: 'ES5',
+            rewrite_polyfills: true,
+            jscomp_off: '*',
+            output_manifest: 'dist/%outname%.MF',
+            variable_renaming_report: 'dist/variable_renaming_report',
+            property_renaming_report: 'dist/property_renaming_report',
+            externs: [
+                path.resolve(__dirname, './src/externs/react.ext.js'),
+                path.resolve(__dirname, './src/externs/react-dom.ext.js'),
+                path.resolve(__dirname, './src/externs/prop-types.ext.js'),
+                path.resolve(__dirname, './src/externs/material-ui.ext.js'),
+                path.resolve(__dirname, './src/externs/mui-components.ext.js'),
+            ]
+            // formatting: 'PRETTY_PRINT',
+            // debug: true,
+        })
+      ],
+      splitChunks: {
+        minSize: 0
+      },
+      concatenateModules: false,
+    },
     plugins: [
         new webpack.BannerPlugin('license MIT'),
         new webpack.EnvironmentPlugin(['NODE_ENV']),
-        new ClosurePlugin({
-            mode: 'AGGRESSIVE_BUNDLE',
-            platform: 'java',
+        new ClosurePlugin.LibraryPlugin({
             closureLibraryBase: require.resolve('google-closure-library/closure/goog/base'),
             deps: [
                 require.resolve('google-closure-library/closure/goog/deps'),
-                './dist/deps.js',
+                path.resolve(__dirname, './dist/deps.js'),
             ]
-        }, {
-                compilation_level: 'ADVANCED',
-                language_out: 'ES5',
-                rewrite_polyfills: true,
-                jscomp_off: '*',
-                output_manifest: 'dist/%outname%.MF',
-                variable_renaming_report: 'dist/variable_renaming_report',
-                property_renaming_report: 'dist/property_renaming_report',
-                externs: [
-                    './src/externs/react.ext.js',
-                    './src/externs/react-dom.ext.js',
-                    './src/externs/prop-types.ext.js',
-                    './src/externs/material-ui.ext.js',
-                    './src/externs/mui-components.ext.js',
-                ],
-                extraCommandArgs: [
-                    '-Xmx2g',
-                    '-Xss8m'
-                ]
-                // formatting: 'PRETTY_PRINT',
-                // debug: true,
-            })
+        })
     ]
 };

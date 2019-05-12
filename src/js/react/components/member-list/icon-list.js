@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import { Avatar, Grid } from '@material-ui/core';
-import {deepPurple, deepOrange} from '@material-ui/core/colors';
+import withStyles from '@material-ui/core/styles/withStyles';
+import Avatar from '@material-ui/core/Avatar';
+import Grid from '@material-ui/core/Grid';
+import deepPurple from '@material-ui/core/colors/deepPurple';
+import deepOrange from '@material-ui/core/colors/deepOrange';
 
 const styles = {
   avatar: {
